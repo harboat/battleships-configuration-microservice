@@ -1,0 +1,37 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: configuration
+  data:
+    mongodb:
+      uri: ${mongo_uri}
+  rabbitmq:
+    addresses: ${rabbit_uri}
+    username: ${rabbit_username}
+    password: ${rabbit_password}
+  zipkin:
+    base-url: ${zipkin_base_url}
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${eureka_service_url}
+
+rabbitmq:
+  exchanges:
+    config: internal-config.exchange
+    rooms: internal-rooms.exchange
+    game: internal-game.exchange
+    core: internal-core.exchange
+    notification: internal-notification.exchange
+  queues:
+    config: config.queue
+  routing-keys:
+    rooms: internal.rooms.routing-key
+    config: internal.config.routing-key
+    game: internal.game.routing-key
+    core: internal.core.routing-key
+    notification: internal.notification.routing-key
