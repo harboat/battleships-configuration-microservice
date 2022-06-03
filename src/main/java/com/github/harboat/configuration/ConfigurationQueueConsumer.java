@@ -5,6 +5,7 @@ import com.github.harboat.clients.exceptions.BadRequest;
 import com.github.harboat.clients.exceptions.ResourceNotFound;
 import com.github.harboat.clients.notification.EventType;
 import com.github.harboat.clients.notification.NotificationRequest;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.AllArgsConstructor;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
 @RabbitListener(
         queues = "${rabbitmq.queues.config}"
 )
+@SuppressFBWarnings(value = "EI_EXPOSE_REP2")
 public class ConfigurationQueueConsumer {
     private final ConfigurationService service;
     private NotificationProducer notificationProducer;
