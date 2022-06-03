@@ -10,6 +10,7 @@ import com.github.harboat.clients.notification.EventType;
 import com.github.harboat.clients.notification.NotificationRequest;
 import com.github.harboat.clients.rooms.MarkFleetSet;
 import com.github.harboat.clients.rooms.UnmarkFleetSet;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
+@SuppressFBWarnings(value = "EI_EXPOSE_REP2")
 public class ConfigurationService {
 
     private ConfigurationRepository repository;
